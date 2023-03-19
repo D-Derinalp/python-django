@@ -1,0 +1,20 @@
+<{% extends 'climate/base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>There was an error with your form! Please try again...</p>
+{% endif %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <h4>Register</h4>
+    <br/>
+    <form action="{% url 'auth_user:registration' %}" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+{% endblock %}

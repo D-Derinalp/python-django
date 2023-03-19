@@ -1,0 +1,30 @@
+{% extends 'climate/base.html' %}
+
+{% block content %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <h4>Login as User</h4>
+    <br/>
+
+    <form action="{% url 'auth_user:login' %}" method="post">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="User" required>
+        <br/><br/>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+        <br/> <br/>
+
+        <input type="submit" value="Login"/>
+    </form>
+    <br/><br/>
+
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+</div>
+{% endblock %}

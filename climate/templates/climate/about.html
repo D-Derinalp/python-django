@@ -1,0 +1,34 @@
+{% extends 'climate/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container pt-5">
+    <div class="row mt-5"> 
+        <div class="col-sm">
+            <h3>About Us</h3>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-5">
+            <div class="zoom">
+                <img class="img-fluid text-sm-centre" src="{% static 'assets/photo1.jpg' %}" alt="plant photo" class="w-100" >
+            </div>
+        </div>  
+        <div class="col-sm-5">
+            <p>
+            Global warming is a challenge that urgently requires the active participation of all civil society actors. 
+            We are a community that wants to raise awareness of climate change among societies and show possible scenarios 
+            to people by explaining the causes and consequences.
+            </p>
+            <p>
+            Here you will find detailed information about the causes and consequences of climate change. 
+            In addition, we will try to learn the public perspectives on climate change with a short survey we would like 
+            to do with you. We look forward to your assistance in this matter.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

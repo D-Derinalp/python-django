@@ -1,0 +1,41 @@
+{% extends 'climate/base.html' %}
+
+{% block content %}
+
+
+<div class="container pt-5">
+    <div class="col-sm-10 pt-5">
+        <p>
+            Welcome to our climate change awareness survey. 
+        </p>
+        {% if user.is_authenticated %}
+        <p>
+            After voting the questions, you would be able to see the result.
+        </p>
+        {% else %}
+        <p>
+            Please Login/Join our website to vote and display survey result.
+        </p>
+        {% endif %}
+        <div class="card">
+            <div class="card header bg-primary">
+                <h4 class="card-title text-white mt-2">Questions</h4>
+            </div>
+            <div class="card-body">
+                {% if latest_question_list %}
+                <ol>
+                    {% for question in latest_question_list %}
+                    <li>
+                        <a href = "{% url 'climate:detail' question.id %}">{{ question.question_text }}</a>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% else %}
+                    <p>No polls are available.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
